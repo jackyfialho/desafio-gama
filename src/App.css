@@ -5,3 +5,19 @@
 .required {
   color: red;
 }
+
+.relative {
+  position: relative;
+}
+
+.btn-position {
+  position: absolute;
+  bottom: 3px;
+}
+
+@media (max-width: 767px) {
+  .btn-position {
+    position: relative;
+    bottom: -8px;
+  }
+}
