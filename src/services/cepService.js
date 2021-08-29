@@ -1,12 +1,13 @@
 import axios from 'axios';
+const baseUrl = 'https://viacep.com.br/ws';
 
 class CepService {
-  request = axios.create();
+  request = axios.create({
+    baseURL: baseUrl,
+  });
 
   async getAddress(cep) {
-    const data = await this.request.get(
-      `https://viacep.com.br/ws/${cep}/json/`,
-    );
+    const data = await this.request.get(`/${cep}/json/`);
     return data;
   }
 }
