@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { cepService } from './services/cepService';
+import { userService } from './services/userService';
 
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -48,27 +49,29 @@ function App() {
     e.preventDefault();
 
     const formData = {
-      nome: nome,
-      cargo: cargo,
-      dataNasc: `${dataNasc.dia}-${dataNasc.mes}-${dataNasc.ano}`,
-      estadoCivil: estadoCivil,
-      sexo: sexo,
-      endereco: `${endereco}, ${endNum}`,
-      bairro: bairro,
-      cidade: cidade,
+      name: nome,
+      jobTitle: cargo,
+      birthDate: `${dataNasc.dia}-${dataNasc.mes}-${dataNasc.ano}`,
+      maritalStatus: estadoCivil,
+      gender: sexo,
+      address: `${endereco}, ${endNum}`,
+      district: bairro,
+      city: cidade,
       cep: cep,
-      tel1: tel1,
-      tel2: tel2,
-      cel: cel,
-      contato: contato,
+      telephone: tel1,
+      telephone2: tel2,
+      celphone: cel,
+      contact: contato,
       email: email,
       rg: rg,
       cpf: cpf,
-      veiculo: veiculo,
-      cnh: cnh,
+      hasCar: veiculo,
+      driversLicence: cnh,
     };
 
     console.log(formData);
+
+    userService.registerUser(formData);
   };
 
   return (
@@ -264,7 +267,7 @@ function App() {
             <div className="col">
               <div className="form-group">
                 <label htmlFor="endereco">
-                  Endereco <span className="required">*</span>
+                  Endereço <span className="required">*</span>
                 </label>
                 <input
                   type="text"
