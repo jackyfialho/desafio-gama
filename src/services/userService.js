@@ -1,14 +1,12 @@
 import axios from 'axios';
-const baseUrl = 'http://localhost:5000';
 
 class UserService {
-  request = axios.create({
-    baseURL: baseUrl,
-  });
+  request = axios.create();
 
   async registerUser(formUser) {
+    console.log(formUser);
     try {
-      const user = await axios.post('/register', formUser);
+      const user = await axios.post('http://localhost:5000/register', formUser);
       if (user.status === 200) {
         alert('Usuário criado com sucesso');
       }

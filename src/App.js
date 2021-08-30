@@ -69,7 +69,7 @@ function App() {
       driversLicence: cnh,
     };
 
-    console.log(formData);
+    //console.log(formData);
 
     userService.registerUser(formData);
   };
